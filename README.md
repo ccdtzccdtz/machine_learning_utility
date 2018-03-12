@@ -67,9 +67,9 @@ for model in models:
     xgb:Extreme Gradient Boosting
     gnb:Gaussian Naive Bayes
     ada:Adapative Boosting
-    nn:Nerual Net
+    nn:Neural Net
     rf:Random Forest
     gb:Gradient Boosting
     xtree:extra tree
-    knn: K nearest neighbour regressor
+    knn: K Nearest Neighbour Classifier
     svc: Support Vector Classifier

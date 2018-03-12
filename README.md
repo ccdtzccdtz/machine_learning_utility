@@ -56,7 +56,7 @@ cv=5
 fitmodel_dict={}
 for model in models:
     print("Fitting %s"%(model))
-    fitmodel, best_params_=Model_GridSearchCV(models[model],parameters[model],cv,data,name=model,n_jobs=3,logtrans=False)
+    fitmodel, best_params_=Model_GridSearchCV(models[model],parameters[model],cv,data,n_jobs=3)
     Model_Eval(fitmodel,5,data,n_jobs=3)
     fitmodel_dict[model]=fitmodel
 

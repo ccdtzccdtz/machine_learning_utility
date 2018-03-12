@@ -49,12 +49,16 @@ cv=5
 data=[train_x,test_x,train_y,test_y]
 model=UTIL()
 model.run_basic_models(data=data,model_list=['rf','gb','xgb','xtree','knn','nn'])
-clf=model.model_dict['nn']
-parameters=model.parameters_dict['nn']
-parameters['gradientboostingclassifier__max_depth']=[2,3,4]
-clf,param=Model_GridSearchCV(clf,parameters,cv,data)
-Model_Eval(clf,5,data,n_jobs=3)
 
+parameters=model.parameters_dict
+models=model.model_dict
+cv=5
+fitmodel_dict={}
+for model in models:
+    print("Fitting %s"%(model))
+    fitmodel, best_params_=Model_GridSearchCV(models[model],parameters[model],cv,data,name=model,n_jobs=3,logtrans=False)
+    Model_Eval(fitmodel,5,data,n_jobs=3)
+    fitmodel_dict[model]=fitmodel
 
 ```
 >
